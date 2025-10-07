@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROYECTO</title>
+
+  <!-- Font Awesome (para los íconos) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Barlow', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #dde1e9;
+      color: #1f283e;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    /* *********** */
+    /* ENCABEZADO - MENÚ */
+    /* *********** */
+    .contenedor-header {
+      width: 100%;
+      position: fixed;
+      border-bottom: 1px solid #1f283e;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 99;
+      padding: 0 20px;
+    }
+    .contenedor-header header {
+      max-width: 1100px;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      color: #fff;
+    }
+    .txtRojo {
+      color: #ff1133;
+    }
+    .contenedor-header header nav a {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      padding: 5px;
+      text-transform: uppercase;
+    }
+    .contenedor-header header nav a:hover {
+      color: #ff1133;
+    }
+    .contenedor-header header .redes a {
+      text-decoration: none;
+      color: #fff;
+      display: inline-block;
+      padding: 5px 8px;
+    }
+    .contenedor-header header .redes a:hover {
+      color: #ff1133;
+    }
+    .nav-responsive {
+      display: none;
+      font-size: 25px;
+      color: #fff;
+      cursor: pointer;
+    }
+    nav.responsive {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #151623;
+      z-index: 98;
+    }
+    nav.responsive a {
+      display: block;
+      width: fit-content;
+      margin: 15px auto;
+      font-size: 30px;
+      color: #fff;
+    }
+    nav.responsive a:hover {
+      color: #ff1133;
+    }
+
+    /* *********** */
+    /* SECCIÓN INICIO */
+    /* *********** */
+    .inicio {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 1, 3, 0.5), rgba(0, 0, 0, 0.7)),
+        url('img/fondo.jpg');
+      background-size: cover;
+      background-position: center center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .inicio .contenido-seccion {
+      max-width: 1100px;
+      margin: auto;
+      height: 100%;
+      position: relative;
+    }
+    .inicio .info {
+      width: fit-content;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .inicio .info h2 {
+      font-size: 4rem;
+      letter-spacing: 3px;
+    }
+    .inicio .info p {
+      margin: 20px 0;
+      color: #797e8e;
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .inicio .info .btn-mas {
+      width: 50px;
+      height: 50px;
+      margin: 30px auto 0 auto;
+      border: 2px solid #ff1133;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: #ff1133;
+    }
+    .opciones {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+    }
+    .inicio .opciones .opcion {
+      border-top: 2px solid #797e8e;
+      padding: 7px;
+      color: #797e8e;
+      margin: 0 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* *********** */
+    /* SECCIÓN NOSOTROS */
+    /* *********** */
+    .nosotros {
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background-color: #dde1e9;
+      padding: 120px 20px;
+    }
+    .nosotros .fila {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nosotros .fila .col {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px;
+    }
+    .nosotros .fila .col img {
+      width: 100%;
+      display: block;
+      margin: auto;
+      max-width: 400px;
+    }
+    .contenedor-titulo {
+      display: flex;
+      align-items: center;
+    }
+    .contenedor-titulo .numero {
+      color: #ff1133;
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .contenedor-titulo .info .frase {
+      color: #ff1133;
+      font-weight: bold;
+    }
+    .contenedor-titulo .info h2 {
+      font-size: 2.5rem;
+    }
+    .nosotros p {
+      margin-bottom: 15px;
+      line-height: 1.5em;
+    }
+    .p-especial {
+      font-weight: bold;
+    }
+    .fila-nosotros {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+    .fila-nosotros .frase {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .fila-nosotros h2 {
+      font-size: 2.2rem;
+    }
+    .fila-nosotros button {
+      background-color: #ff1133;
+      border: none;
+      color: #fff;
+      padding: 15px 35px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #1f283e;
+      margin: 40px 0;
+    }
+
+    /* ********** */
+    /* SECCIÓN SERVICIOS */
+    /* ********** */
+    .servicios {
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+    }
+    .servicios .contenido-seccion {
+      background: linear-gradient(rgba(0, 14, 41, 0.6), rgba(0, 7, 78, 0.7)),
+        url('img/fondo-servicios.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .servicios .fila {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .servicios .fila .col {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px;
+    }
+    .servicios .fila .col img {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
+    }
+    .servicios .fila .col .contenedor-titulo {
+      display: flex;
+      align-items: center;
+    }
+    .servicios .fila .col .contenedor-titulo .numero {
+      color: #ff1133;
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    .servicios .fila .col .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .servicios .fila .col .contenedor-titulo .info .frase {
+      color: #ff1133;
+    }
+    .servicios .fila .col .contenedor-titulo .info h2 {
+      font-size: 2.5rem;
+    }
+    .servicios .fila .col p {
+      margin-bottom: 15px;
+      line-height: 1.5em;
+    }
+    .p-especial {
+      font-weight: bold;
+    }
+    .info-servicios {
+      margin-top: 60px;
+      background-color: #fff;
+      color: #1f283e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .info-servicios table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .info-servicios td {
+      padding: 30px;
+      border: 1px solid #dde1e9;
+      text-align: center;
+    }
+    .info-servicios td i {
+      color: #ff1133;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .info-servicios h3 {
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .info-servicios p {
+      line-height: 1.6em;
+    }
+
+    /* *********** */
+    /* SECCIÓN COMODIDADES */
+    /* *********** */
+    .comodidades {
+      max-width: 1100px;
+      margin: auto;
+      background-color: #dde1e9;
+      padding: 120px 20px;
+    }
+    .comodidades .fila {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .comodidades .fila .col {
+      flex: 1;
+      min-width: 300px;
+      padding: 10px;
+    }
+    .comodidades .fila .col img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: auto;
+    }
+    .comodidades .fila .col .contenedor-titulo {
+      display: flex;
+      align-items: center;
+    }
+    .comodidades .fila .col .contenedor-titulo .numero {
+      color: #ff1133;
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    .comodidades .fila .col .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .comodidades .fila .col .contenedor-titulo .info .frase {
+      color: #ff1133;
+    }
+    .comodidades .fila .col .contenedor-titulo .info h2 {
+      font-size: 2.5rem;
+    }
+    .comodidades ul {
+      margin-top: 20px;
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .comodidades li {
+      margin-bottom: 15px;
+      line-height: 1.5em;
+    }
+    .comodidades li span {
+      font-weight: bold;
+      color: #ff1133;
+    }
+
+    /* ********** */
+    /* GALERÍA */
+    /* ********** */
+    .galeria {
+      color: #fff;
+      background: linear-gradient(rgba(0, 14, 41, 0.6), rgba(0, 7, 78, 0.7)),
+        url('img/fondo-galeria.jpg');
+      background-size: cover;
+      background-position: center center;
+      padding: 100px 0;
+    }
+    .galeria .contenido-seccion {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    .galeria .contenedor-titulo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .galeria .contenedor-titulo .numero {
+      color: #ff1133;
+      font-size: 4rem;
+    }
+    .galeria .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .galeria .contenido-seccion .fila {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .galeria .fila .col {
+      flex: 1;
+      min-width: 200px;
+    }
+    .galeria .fila .col img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* *********** */
+    /* EQUIPO */
+    /* *********** */
+    .equipo {
+      max-width: 1100px;
+      margin: auto;
+      padding: 120px 20px;
+      background-color: #dde1e9;
+    }
+    .equipo .contenedor-titulo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+    .equipo .contenedor-titulo .numero {
+      color: #ff1133;
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    .equipo .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .equipo .contenedor-titulo .info .frase {
+      color: #ff1133;
+    }
+    .equipo .contenedor-titulo .info h2 {
+      font-size: 2.5rem;
+    }
+    .equipo .fila {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+    }
+    .equipo .fila .col {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+    .equipo .fila .col img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .equipo .fila .col .info {
+      border: 3px solid #1f283e;
+      text-align: center;
+      border-radius: 5px;
+      padding: 20px;
+      background: linear-gradient(#118cff, #9a0e23);
+      color: #fff;
+      margin-top: 15px;
+    }
+    .equipo .fila .info p {
+      margin: 15px 0;
+    }
+    .equipo .fila .info a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    /* *********** */
+    /* CONTACTO */
+    /* *********** */
+    .contacto {
+      color: #fff;
+      background: linear-gradient(rgba(0, 14, 41, 0.6), rgba(0, 7, 78, 0.7)),
+        url('img/fondo1.jpg');
+      background-size: cover;
+      background-position: center center;
+      padding: 120px 20px;
+    }
+    .contacto .contenido-seccion {
+      max-width: 800px;
+      margin: auto;
+    }
+    .contacto .contenedor-titulo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+    .contacto .contenedor-titulo .numero {
+      color: #ff1133;
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    .contacto .contenedor-titulo .info {
+      margin-left: 20px;
+    }
+    .contacto .contenedor-titulo .info .frase {
+      color: #ff1133;
+    }
+    .contacto .contenedor-titulo .info h2 {
+      font-size: 2.5rem;
+    }
+    .contacto .fila {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .contacto .fila .col {
+      flex: 1;
+      min-width: 280px;
+    }
+    .contacto input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      outline: none;
+    }
+    .contacto textarea {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      resize: vertical;
+      min-height: 150px;
+    }
+    .contacto button {
+      display: block;
+      margin: 30px auto 0 auto;
+      border: none;
+      background-color: #ff1133;
+      color: #fff;
+      font-size: 18px;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .fila-datos {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 16px;
+    }
+    .fila-datos .col {
+      min-width: 200px;
+      text-align: center;
+    }
+    .fila-datos .col i {
+      color: #ff1133;
+      margin-right: 8px;
+    }
+
+    /* *********** */
+    /* FOOTER */
+    /* *********** */
+    footer {
+      background-color: #151623;
+      padding: 30px 0;
+    }
+    footer .info {
+      display: flex;
+      max-width: 1100px;
+      margin: auto;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #797e8e;
+    }
+    footer .info p {
+      margin-bottom: 10px;
+    }
+    footer .info a {
+      color: #797e8e;
+      margin: 0 10px;
+    }
+
+    /* *********** */
+    /* RESPONSIVE */
+    /* *********** */
+    @media only screen and (max-width: 900px) {
+      .contenedor-header header nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+      }
+      .nav-responsive {
+        display: block;
+      }
+      .inicio .opciones {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MENÚ -->
+  <div class="contenedor-header">
+    <header>
+      <h1>THE <span class="txtRojo">GYM</span></h1>
+      <nav id="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#comodidades">Comodidades</a>
+        <a href="#galeria">Galería</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div id="icono-nav" class="nav-responsive" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="redes">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </header>
+  </div>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="inicio" class="inicio">
+    <div class="contenido-seccion">
+      <div class="info">
+        <h2>HAZ QUE <span class="txtRojo">OCURRA</span></h2>
+        <p>Es momento del prime!</p>
+        <a href="#nosotros" class="btn-mas">
+          <i class="fa-solid fa-circle-chevron-down"></i>
+        </a>
+      </div>
+      <div class="opciones">
+        <div class="opcion">01. FITNESS</div>
+        <div class="opcion">02. CROSSFIT</div>
+        <div class="opcion">03. BOXING</div>
+        <div class="opcion">04. ENDURANCE</div>
+        <div class="opcion">05. YOGA</div>
+        <div class="opcion">06. CARDIO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN NOSOTROS -->
+  <section id="nosotros" class="nosotros">
+    <div class="fila">
+      <div class="col">
+        <img src="img/cAMBA.jpg" alt="Nosotros Imagen" />
+      </div>
+      <div class="col">
+        <div class="contenedor-titulo">
+          <div class="numero">01</div>
+          <div class="info">
+            <span class="frase">LA MEJOR EXPERIENCIA</span>
+            <h2>NOSOTROS</h2>
+          </div>
+        </div>
+        <p class="p-especial">AQUI ES DONDE EMPIEZA TODO.</p>
+        <p>
+          Nuestro objetivo es crear un entorno de entrenamiento inspirador y apoyo
+          mutuo, donde los miembros puedan alcanzar sus objetivos de fitness y mejorar
+          su bienestar físico y mental.
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="fila-nosotros">
+      <div class="col1">
+        <span class="frase">
+          <span class="txtRojo">ENTRENA</span> DIFERENTE
+        </span>
+        <h2>ENTRENA <span class="txtRojo">GRATIS</span> HOY!</h2>
+      </div>
+      <div class="col2">
+        <button>PASE LIBRE</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios" class="servicios">
+    <div class="contenido-seccion">
+      <div class="fila">
+        <div class="col">
+          <div class="contenedor-titulo">
+            <div class="numero">02</div>
+            <div class="info">
+              <span class="frase">LA MEJOR EXPERIENCIA</span>
+              <h2>SERVICIOS</h2>
+            </div>
+          </div>
+          <p class="p-especial">Ofrecemos una variedad de servicios y clases para ayudarte a alcanzar tus objetivos de fitness y bienestar. Nuestros servicios incluyen:</p>
+          <p><span class="txtRojo">Servicios de Salud y Bienestar:</span> evaluaciones de salud y condición física, medición de la presión arterial y la frecuencia cardíaca.</p>
+          <p><span class="txtRojo">Instalaciones y Equipamiento:</span> gimnasio equipado con máquinas de cardio, pesas y equipo de entrenamiento de fuerza.</p>
+          <p><span class="txtRojo">Servicios de Nutrición y Recuperación:</span> asesoramiento nutricional y servicios de recuperación muscular.</p>
+        </div>
+        <div class="col">
+          <img src="img/servicios.webp" alt="Servicios Imagen" />
+        </div>
+      </div>
+      <div class="info-servicios">
+        <table>
+          <tr>
+            <td>
+              <i class="fa-solid fa-person-walking"></i>
+              <h3><span class="txtRojo">Clases</span> de Fitness</h3>
+              <p>Nuestras clases de fitness están diseñadas para mejorar tu resistencia, fuerza y flexibilidad, así como tu capacidad para mantener un ritmo alto durante largos períodos.</p>
+            </td>
+            <td>
+              <i class="fa-solid fa-dumbbell"></i>
+              <h3><span class="txtRojo">Clases</span> de Crossfit</h3>
+              <p>Nuestras clases de CrossFit están diseñadas para mejorar tu condición física general, aumentar tu resistencia y fuerza, y mejorar tu capacidad para realizar tareas funcionales.</p>
+            </td>
+            <td>
+              <i class="fa-solid fa-mitten"></i>
+              <h3><span class="txtRojo">Clases</span> de Boxeo</h3>
+              <p>Nuestras clases de boxeo están diseñadas para mejorar tu resistencia, fuerza y agilidad, así como tu capacidad para mantener un ritmo alto durante largos períodos.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa-solid fa-clock"></i>
+              <h3><span class="txtRojo">Clases</span> de Enduro</h3>
+              <p>Nuestras clases de enduro están diseñadas para mejorar tu resistencia, fuerza y flexibilidad, así como tu capacidad para mantener un ritmo alto durante largos períodos.</p>
+            </td>
+            <td>
+              <i class="fa-solid fa-heart-circle-bolt"></i>
+              <h3><span class="txtRojo">Clases</span> de Cardio</h3>
+              <p>Nuestras clases de cardio están diseñadas para mejorar tu resistencia cardiovascular, aumentar tu capacidad para realizar ejercicio intenso durante largos períodos y mejorar tu salud en general.</p>
+            </td>
+            <td>
+              <i class="fa-solid fa-bicycle"></i>
+              <h3><span class="txtRojo">Clases</span> de Ciclismo</h3>
+              <p>Nuestras clases de ciclismo están diseñadas para mejorar tu resistencia cardiovascular, aumentar tu capacidad para realizar ejercicio intenso durante largos períodos y mejorar tu técnica en el ciclismo.</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN COMODIDADES -->
+  <section id="comodidades" class="comodidades">
+    <div class="fila">
+      <div class="col">
+        <img src="img/Annabel.jpg" alt="Comodidad Imagen" />
+      </div>
+      <div class="col">
+        <div class="contenedor-titulo">
+          <div class="numero">03</div>
+          <div class="info">
+            <span class="frase">LA MEJOR EXPERIENCIA</span>
+            <h2>COMODIDADES</h2>
+          </div>
+        </div>
+        <p class="p-especial">Nos preocupan sus comodidades.</p>
+        <ul>
+          <li><span>ÁREAS RELAX</span> – Estas áreas proporcionan un entorno tranquilo y rejuvenecedor donde los usuarios pueden recuperarse después de un entrenamiento intenso.</li>
+          <li><span>WIFI GRATIS</span> – Habrá una zona de internet con velocidad de 100 Mbps por segundo.</li>
+          <li><span>ESTACIONAMIENTO GRATIS</span> – Ofreceremos a los miembros la categoría de estacionamiento especial en nuestro gym.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN GALERÍA -->
+  <section id="galeria" class="galeria">
+    <div class="contenido-seccion">
+      <div class="contenedor-titulo">
+        <div class="numero">04</div>
+        <div class="info">
+          <span class="frase">LA MEJOR EXPERIENCIA</span>
+          <h2>GALERÍA</h2>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="col"><img src="img/f1.jpg" alt="Gal1" /></div>
+        <div class="col"><img src="img/f2.jpg" alt="Gal2" /></div>
+        <div class="col"><img src="img/f3.jpg" alt="Gal3" /></div>
+      </div>
+      <div class="fila">
+        <div class="col"><img src="img/f4.jpg" alt="Gal4" /></div>
+        <div class="col"><img src="img/f5.jpg" alt="Gal5" /></div>
+        <div class="col"><img src="img/f6.jpg" alt="Gal6" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EQUIPO -->
+  <section id="equipo" class="equipo">
+    <div class="contenedor-titulo">
+      <div class="numero">05</div>
+      <div class="info">
+        <span class="frase">LA MEJOR EXPERIENCIA</span>
+        <h2>EQUIPO</h2>
+      </div>
+    </div>
+    <div class="fila">
+      <div class="col">
+        <img src="img/e1.png" alt="Entrenador 1" />
+        <div class="info">
+          <h2>David</h2>
+          <p>Cardio • Calistenia • Ciclismo</p>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col">
+        <img src="img/e2.png" alt="Entrenador 2" />
+        <div class="info">
+          <h2>Annabel</h2>
+          <p>Fitness • Pierna Completa • Yoga</p>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col">
+        <img src="img/e3.png" alt="Entrenador 3" />
+        <div class="info">
+          <h2>Mateo</h2>
+          <p>Cardio • Boxeo • Enduro</p>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto" class="contacto">
+    <div class="contenido-seccion">
+      <div class="contenedor-titulo">
+        <div class="numero">06</div>
+        <div class="info">
+          <span class="frase">LA MEJOR EXPERIENCIA</span>
+          <h2>CONTACTO</h2>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="col">
+          <input type="text" placeholder="Ingrese Email" />
+        </div>
+        <div class="col">
+          <input type="text" placeholder="Ingrese Nombre" />
+        </div>
+      </div>
+      <textarea placeholder="Ingresa el Mensaje"></textarea>
+      <button>Enviar Mensaje</button>
+      <div class="fila-datos">
+        <div class="col">
+          <i class="fa-solid fa-location-dot"></i>
+          Avenida Paragua Segundo Anillo
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-phone"></i>
+          591 - 67358829
+        </div>
+        <div class="col">
+          <i class="fa-regular fa-clock"></i>
+          Lunes a Sábado, 8:00h - 24:00h
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="info">
+      <p>2024 - <span class="txtRojo">THE GYM</span> Todos los derechos reservados</p>
+      <div class="redes">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Función para mostrar/ocultar menú responsive
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('responsive');
+    }
+
+    // Cierra el menú al hacer clic en un enlace
+    document.querySelectorAll('#nav a').forEach((enlace) => {
+      enlace.addEventListener('click', () => {
+        const nav = document.getElementById('nav');
+        nav.classList.remove('responsive');
+      });
+    });
+  </script>
+</body>
+</html>
